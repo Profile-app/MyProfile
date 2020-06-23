@@ -19,7 +19,7 @@ public class ProfilePage extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                //finish();
             }
         });
     }

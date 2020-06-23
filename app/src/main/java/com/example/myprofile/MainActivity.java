@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user=userName.getText().toString();
-                String pass=password.getText().toString();
+               // String user=userName.getText().toString();
+                //String pass=password.getText().toString();
                 //if(pass.equals("ravi123") && user.equals("ravi1234")){
                         Intent i=new Intent(getApplicationContext(), ProfilePage.class);
                         startActivity(i);
