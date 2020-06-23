@@ -1,15 +1,18 @@
 package com.example.myprofile;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.android.material.snackbar.Snackbar;
@@ -19,7 +22,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class VerifyOTP extends AppCompatActivity {
@@ -33,6 +40,7 @@ public class VerifyOTP extends AppCompatActivity {
 
     //firebase auth object
     private FirebaseAuth mAuth;
+    FirebaseFirestore fstore;
 
 
     @Override
@@ -42,6 +50,7 @@ public class VerifyOTP extends AppCompatActivity {
 
         //initializing objects
         mAuth = FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
         editTextCode = findViewById(R.id.otp);
 
 
@@ -128,13 +137,28 @@ public class VerifyOTP extends AppCompatActivity {
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(VerifyOTP.this, new OnCompleteListener<AuthResult>() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             //verification successful we will start the profile activity
-                            Intent intent = new Intent(VerifyOTP.this, SignupActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
+                            DocumentReference docref=fstore.collection("users").document(Objects.requireNonNull(mAuth.getCurrentUser()).getUid());
+                            docref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    if(documentSnapshot.exists())
+                                    {
+                                        Intent i=new Intent(VerifyOTP.this,ProfilePageActivity.class);
+                                        startActivity(i);
+                                        finish();
+                                    }
+                                    else {
+                                        Intent intent = new Intent(VerifyOTP.this, SignupActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
+                                    }
+                                }
+                            });
 
                         } else {
 
