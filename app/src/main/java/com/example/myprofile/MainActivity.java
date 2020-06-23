@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 //import android.widget.Toast;
 
 import java.util.Objects;
@@ -34,26 +35,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 Intent i=new Intent(getApplicationContext(),OTPActivity.class);
                 startActivity(i);
+
             }
         });
-
         userName=findViewById(R.id.username);
         password=findViewById(R.id.password);
 
-        loginButton= findViewById(R.id.login_btn);
+        loginButton=findViewById(R.id.login_btn);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // String user=userName.getText().toString();
-                //String pass=password.getText().toString();
-                //if(pass.equals("ravi123") && user.equals("ravi1234")){
-                        Intent i=new Intent(getApplicationContext(), ProfilePage.class);
-                        startActivity(i);
 
-                //}
-               // else {
-              //      Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
-              //  }
+               String user=userName.getText().toString();
+               String pass=password.getText().toString();
+               if(pass.equals("admin") && user.equals("admin")){
+                    Intent profile=new Intent(MainActivity.this, ProfilePageActivity.class);
+                    startActivity(profile);
+               }
+               else {
+                    Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG).show();
+               }
 
 
 

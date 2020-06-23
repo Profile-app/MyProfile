@@ -1,6 +1,5 @@
 package com.example.myprofile;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -40,6 +39,7 @@ public class VerifyOTP extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify);
+
         //initializing objects
         mAuth = FirebaseAuth.getInstance();
         editTextCode = findViewById(R.id.otp);
@@ -82,6 +82,8 @@ public class VerifyOTP extends AppCompatActivity {
                 TaskExecutors.MAIN_THREAD,
                 mCallbacks);
     }
+
+
     //the callback to detect the verification status
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
@@ -138,7 +140,7 @@ public class VerifyOTP extends AppCompatActivity {
 
                             //verification unsuccessful.. display an error message
 
-                            String message = "Something is wrong, we will fix it soon...";
+                            String message = "Somthing is wrong, we will fix it soon...";
 
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 message = "Invalid code entered...";
@@ -155,7 +157,6 @@ public class VerifyOTP extends AppCompatActivity {
                         }
                     }
                 });
-
     }
-}
 
+}

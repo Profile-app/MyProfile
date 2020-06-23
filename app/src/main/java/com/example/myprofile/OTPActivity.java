@@ -17,6 +17,7 @@ import java.util.Objects;
 public class OTPActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private EditText edit;
+
     @SuppressLint("WrongViewCast")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class OTPActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         setContentView(R.layout.activity_otp);
-        edit = findViewById(R.id.editTextMobile);
+        edit = (EditText) findViewById(R.id.editTextMobile);
 
         findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +34,7 @@ public class OTPActivity extends AppCompatActivity {
 
                 String mobile = edit.getText().toString().trim();
 
-                if(mobile.isEmpty() || mobile.length() < 10){
+                if (mobile.isEmpty() || mobile.length() < 10) {
                     edit.setError("Enter a valid mobile");
                     edit.requestFocus();
                     return;
@@ -46,8 +47,9 @@ public class OTPActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 }
+
+
+
+
