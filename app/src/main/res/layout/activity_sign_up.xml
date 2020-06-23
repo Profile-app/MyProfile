@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/company_logo"
+            android:src="@drawable/logo" />
+
+        <EditText
+            android:id="@+id/username1"
+            style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/imageView4"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="-107dp"
+            android:autofillHints="@string/phone_number"
+            android:background="@drawable/edittext_bg"
+            android:hint=" Username"
+            android:inputType="text"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/password1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/username1"
+            android:layout_marginBottom="-69dp"
+            android:autofillHints="@string/password"
+            android:background="@drawable/edittext_bg"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/password1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="-75dp"
+            android:background="#ED3F40EA"
+            android:text=" Create Account"
+            android:textColor="#cdd8f1"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

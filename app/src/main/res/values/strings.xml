@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="company_logo">Company Logo</string>
+    <string name="phone_number">"  Phone Number or Username"</string>
+    <string name="password">"  Password"</string>
+    <string name="login">" Log In"</string>
+    <string name="OR">" OR"</string>
+    <string name="Sign_up">No account yet? Create one</string>
+    <string name="background_otp_verify">background image at phone verification</string>
+    <string name="VERIFY_msg">VERIFY MOBILE NUMBER</string>
+    <string name="VERIFY">VERIFY</string>
+</resources>
