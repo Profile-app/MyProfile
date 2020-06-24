@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfilePageActivity"></activity>
+        <activity android:name=".Signup2Activity"/>
+        <activity android:name=".ProfilePageActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,8 +21,6 @@
         </activity>
         <activity android:name=".OTPActivity" />
         <activity android:name=".VerifyOTP" />
-
-
     </application>
 
 </manifest>
