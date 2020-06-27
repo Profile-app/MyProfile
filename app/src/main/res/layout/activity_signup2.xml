@@ -126,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Custom"
+                android:text="Other"
                 android:textSize="18sp"
                 android:textStyle="italic"
                 tools:ignore="HardcodedText" />
@@ -137,7 +137,6 @@
             android:layout_width="match_parent"
             android:layout_height="104dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="false"
             android:layout_marginTop="460dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="Privacy Policy"
