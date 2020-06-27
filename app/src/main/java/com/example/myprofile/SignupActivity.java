@@ -54,12 +54,11 @@ public class SignupActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Intent i = new Intent(SignupActivity.this, ProfilePageActivity.class);
+                                Intent i = new Intent(SignupActivity.this, Signup2Activity.class);
                                 startActivity(i);
                                 finish();
                             } else {
                                 Toast.makeText(SignupActivity.this, "Data is not inserted.", Toast.LENGTH_SHORT).show();
-
                             }
                         }
                     });
@@ -69,5 +68,7 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
+
+
 }
 }

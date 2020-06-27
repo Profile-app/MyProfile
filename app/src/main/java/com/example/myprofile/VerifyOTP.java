@@ -148,7 +148,7 @@ public class VerifyOTP extends AppCompatActivity {
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     if(documentSnapshot.exists())
                                     {
-                                        Intent i=new Intent(VerifyOTP.this,ProfilePageActivity.class);
+                                        Intent i=new Intent(VerifyOTP.this,SignupActivity.class);
                                         startActivity(i);
                                         finish();
                                     }
