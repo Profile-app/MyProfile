@@ -44,6 +44,8 @@ public class SignupActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if (!user_id.getText().toString().isEmpty() && !password.getText().toString().isEmpty()) {
                     String uid = user_id.getText().toString();
                     String pass = password.getText().toString();
@@ -67,6 +69,8 @@ public class SignupActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(SignupActivity.this, "All Fields are Required.", Toast.LENGTH_SHORT).show();
                 }
+
+
             }
         });
 }
